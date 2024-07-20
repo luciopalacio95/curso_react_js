@@ -63,6 +63,15 @@ export const usersSlice = createSlice({
             const id = action.payload;
             return state.filter((user) => user.id !== id);
         },
+        modifyUser: (state, action: PayloadAction<UserWithId>) => {
+            state.map((user)=>{
+                if(user.id === action.payload.id){
+                    user.name = action.payload.name;
+                    user.email = action.payload.email;
+                    user.github = action.payload.github
+                }
+            })
+        },
         rollBackUser: (state, action: PayloadAction<UserWithId>) => {
             const isUserAlreadyDefined = state.some(user => user.id === action.payload.id);
             if(!isUserAlreadyDefined){
@@ -75,4 +84,4 @@ export const usersSlice = createSlice({
 
 export default usersSlice.reducer;
 
-export const {addNewUser, deleteUserById, rollBackUser} = usersSlice.actions
+export const {addNewUser, deleteUserById, modifyUser, rollBackUser} = usersSlice.actions
