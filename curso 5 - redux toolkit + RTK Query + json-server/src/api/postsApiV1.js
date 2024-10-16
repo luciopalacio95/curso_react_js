@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { getPosts } from './posts';
 
 const API = "http://localhost:3005";
 
@@ -8,7 +7,7 @@ export const postApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: API}),
     endpoints: (builder) =>({
         getPosts: builder.query({
-            query: () => "/posts"
+            query: () => "/posts",
         }),
         getPostById: builder.query({
             query: (postId) => "/posts/" + postId

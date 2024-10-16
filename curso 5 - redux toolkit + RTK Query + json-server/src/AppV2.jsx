@@ -2,7 +2,7 @@
 import { useState } from "react";
 import NewPost from "./components/NewPost";
 import PostDetails from "./components/PostDetails";
-import PostList from "./components/PostList";
+import PostList from "./components/PostListV2";
 
 export default function App() {
   const [postId, setPostId] = useState(-1);

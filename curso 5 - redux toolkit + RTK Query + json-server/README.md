@@ -3,7 +3,7 @@
 ## video tutorial
 parte 1: https://www.youtube.com/watch?v=an2hyrNwCNE
 parte 2: https://www.youtube.com/watch?v=kC_6YSi6XdE
-parte 3: 
+parte 3: https://www.youtube.com/watch?v=i3CerEkkAmU
 
 ## manejo de estado con @reduxjs/toolkit y react-redux
 - Documentación

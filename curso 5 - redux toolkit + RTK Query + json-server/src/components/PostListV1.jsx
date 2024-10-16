@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from "react";
 import { getPosts } from "../api/posts";
-import {useGetPostsQuery} from "../api/postsApi"
+import {useGetPostsQuery} from "../api/postsApiV1"
 
 export default function PostList({ setPostId }) {
   //--forma nueva con RTKquery y redux--
-  const {data:posts, isLoading, error, isError, isSuccess} = useGetPostsQuery()
+  const {
+    data:posts,
+    isLoading,
+    error,
+    isError,
+    isSuccess,
+  } = useGetPostsQuery()
 
   //--forma vieja--
   

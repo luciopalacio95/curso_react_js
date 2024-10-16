@@ -1,27 +1,38 @@
 import React, { useState } from "react";
 import { createNewPost } from "../api/posts";
+import { useAddNewPostMutation } from "../api/postsApiV3";
 
 function NewPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  //--forma nueva con RTKquery y redux--
+ const [/*trigger ->*/ createPost, {isLoading, error}] = useAddNewPostMutation()
+
+  //--forma vieja--
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+     e.preventDefault();
+    //--forma nueva con RTKquery y redux--
+    await createPost({ title, body }).unwrap(); /*<- usamos unwrap() para volverlo una promose*/
+    //al ser promise, nos permite luego de ejecutarse, limpiar los campos
+    setTitle("");
+    setBody("");
 
-    setIsLoading(true);
-    try {
-      await createNewPost({ title, body });
+    //--forma vieja--
+    //   setIsLoading(true);
+    //   try {
+    //     await createNewPost({ title, body });
 
-      setTitle("");
-      setBody("");
-    } catch (error) {
-      setError(error);
-    }
+    //     setTitle("");
+    //     setBody("");
+    //   } catch (error) {
+    //     setError(error);
+    //   }
 
-    setIsLoading(false);
+    //   setIsLoading(false);
   };
 
   return (

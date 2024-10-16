@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from "react";
 import { getPostById } from "../api/posts";
-import { useGetPostByIdQuery } from "../api/postsApi";
+import { useGetPostByIdQuery } from "../api/postsApiV2";
 
 export default function PostDetails({ postId }) {
 
